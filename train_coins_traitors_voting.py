@@ -94,6 +94,8 @@ class EvaluationCallbacks(DefaultCallbacks):
                 ep_info = episode.last_info_for(i)
                 break
         if ep_info is not None and ep_info:
+            # The rewards are sometimes reported multiple times and not just in the episode that they occured
+            # Therefore, these first two metrics are a bit buggy and should not be used for deep analysis
             episode.user_data['reward_innocents'].append(ep_info['reward']['innocents'])
             episode.user_data['reward_traitors'].append(ep_info['reward']['traitors'])
             episode.user_data['coins_collected'] = ep_info['coins']['collected']
