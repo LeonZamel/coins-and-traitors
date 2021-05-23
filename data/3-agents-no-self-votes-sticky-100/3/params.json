@@ -1,0 +1,75 @@
+{
+  "callbacks": "<class '__main__.EvaluationCallbacks'>",
+  "env": "<class 'environments.coins_traitors_voting.CoinsTraitorsVoting'>",
+  "env_config": {
+    "agent_removal": "voting",
+    "debug": {
+      "disable_votes": false,
+      "verbose": false
+    },
+    "disable_self_votes": true,
+    "horizon": 100,
+    "num_agents": 3,
+    "num_coins": 10,
+    "num_traitors": 1,
+    "observable_votes": true,
+    "reset_removed_agents_votes": true,
+    "rewards": {
+      "innocents": {
+        "break_coin": -10,
+        "collect_coin": 10,
+        "per_timestep": -0.1,
+        "remove_innocent": -60,
+        "remove_traitor": 10
+      },
+      "traitors": {
+        "break_coin": 10,
+        "collect_coin": -10,
+        "per_timestep": 0,
+        "remove_innocent": 10,
+        "remove_traitor": -60
+      }
+    },
+    "sticky_votes": 100,
+    "view_ranges": {
+      "innocents": 3,
+      "traitors": 3
+    },
+    "vote_majority_only_alive": true
+  },
+  "framework": "torch",
+  "horizon": 100,
+  "multiagent": {
+    "policies": {
+      "innocent": [
+        null,
+        "Dict(map:Box(0.0, 1.0, (7, 7, 3), float32), map_agents:Tuple(Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4))), own_id:Discrete(3), playing:Tuple(Discrete(2), Discrete(2), Discrete(2)), votes:Tuple(Tuple(Discrete(2), Discrete(2), Discrete(2)), Tuple(Discrete(2), Discrete(2), Discrete(2)), Tuple(Discrete(2), Discrete(2), Discrete(2))))",
+        "Dict(move:Discrete(5), vote:Tuple(Discrete(2), Discrete(2), Discrete(2)))",
+        {
+          "model": {
+            "custom_model": "model_perm_equivariant",
+            "custom_model_config": {
+              "traitor": false
+            }
+          }
+        }
+      ],
+      "traitor": [
+        null,
+        "Dict(map:Box(0.0, 1.0, (7, 7, 3), float32), map_agents:Tuple(Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4)), Tuple(Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4), Discrete(4))), own_id:Discrete(3), playing:Tuple(Discrete(2), Discrete(2), Discrete(2)), traitors:Tuple(Discrete(2), Discrete(2), Discrete(2)), votes:Tuple(Tuple(Discrete(2), Discrete(2), Discrete(2)), Tuple(Discrete(2), Discrete(2), Discrete(2)), Tuple(Discrete(2), Discrete(2), Discrete(2))))",
+        "Dict(move:Discrete(5), vote:Tuple(Discrete(2), Discrete(2), Discrete(2)))",
+        {
+          "model": {
+            "custom_model": "model_perm_equivariant",
+            "custom_model_config": {
+              "traitor": true
+            }
+          }
+        }
+      ]
+    },
+    "policy_mapping_fn": "<function <lambda> at 0x7f48c356df70>"
+  },
+  "num_gpus": 1,
+  "num_workers": 3
+}
