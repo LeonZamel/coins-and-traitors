@@ -72,7 +72,7 @@ These different environments come from the prototyping nature of this project. `
 
 `coins_easy.py` (legacy) is a simple environment in which agents have to collect coins with limited visibility. It can be used as a first benchmark to see how well agents learn this task.
 
-`coins_traitors.py` (legacy) introduces traitors which can destroy the coins. Innocents get an attacking ability. This is to see if agents can generally learn how to interact with other agents. I.e., innocents need to learn not to attack others without a reason, only if they break coins. And traitors should learn to not get caught breaking coins. This environment also has a setting to disable observable IDs. This can be one way of implementing the agent "tracing" mentioned in [Future Work](future-work).
+`coins_traitors.py` (legacy) introduces traitors which can destroy the coins. Innocents get an attacking ability. This is to see if agents can generally learn how to interact with other agents. I.e., innocents need to learn not to attack others without a reason, only if they break coins. And traitors should learn to not get caught breaking coins. This environment also has a setting to disable observable IDs. This can be one way of implementing the agent "tracing" mentioned in [Future Work](#future-work).
 
 `coins_traitors_voting.py` is the main environment which is tested. The environment has coins, innocents, traitors and a voting mechanic. Agents can send a vector of who they want to vote for in each round. This environment allows for the most complex strategies. For example, traitors could vote against other traitors to gain trust of innocents or innocents could recognize that an agent votes for others seemingly without reason and therefore believe they are a traitor. 
 
